@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
+        $users = User::inRandomOrder()->take(10)->get();
+        $users = User::inRandomOrder()->take(10)->get();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $users->each(function ($user) {
+            $user->update([
+                'email' => User::factory()->make()->email, // Generate a random email
+            ]);
+        });
     }
 }

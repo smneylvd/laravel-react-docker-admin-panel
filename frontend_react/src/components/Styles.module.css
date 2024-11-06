@@ -1,0 +1,7 @@
+.deleted {
+    background-color: rgba(255, 0, 0, 0.53) !important;
+}
+
+.user_info_bg {
+    background-color: rgba(255, 255, 255, 0.05);
+}
